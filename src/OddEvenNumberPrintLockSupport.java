@@ -9,11 +9,6 @@ public class OddEvenNumberPrintLockSupport {
     static Thread oddThread;
     static Thread evenThread;
 
-    public OddEvenNumberPrintLockSupport(int s, int e){
-        start = s;
-        end = e;
-    }
-
     public static void main(String[] args) {
         oddThread = new Thread(new OddThread());
         evenThread = new Thread(new EvenThread());
