@@ -1,5 +1,3 @@
-# AlgorithmCode
-算法日常练习记录
 ## 交替打印奇偶
 - [LockSupport形式](https://github.com/lsbnbdz/AlgorithmCode/blob/main/src/OddEvenNumberPrintLockSupport.java)
 - [非阻塞形式](https://github.com/lsbnbdz/AlgorithmCode/blob/main/src/OddEvenNumberPrintNIO.java)
