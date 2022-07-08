@@ -2,7 +2,6 @@ import java.util.concurrent.locks.LockSupport;
 
 public class OddEvenNumberPrintLockSupport {
 
-    private volatile static boolean flag = true;
     private static int start = 1;
     private static int end = 100;
 
@@ -22,13 +21,10 @@ public class OddEvenNumberPrintLockSupport {
         @Override
         public void run() {
             while(start <= end){
-                if(flag){
-                    System.out.println("奇数线程："+start);
-                    start++;
-                    flag = !flag;
-                    LockSupport.unpark(evenThread);
-                    LockSupport.park();
-                }
+                System.out.println("奇数线程："+start);
+                start++;
+                LockSupport.unpark(evenThread);
+                LockSupport.park();
             }
         }
     }
@@ -38,13 +34,10 @@ public class OddEvenNumberPrintLockSupport {
         @Override
         public void run() {
             while(start <= end){
-                if(!flag){
-                    LockSupport.park();
-                    System.out.println("偶数线程："+start);
-                    start++;
-                    flag = !flag;
-                    LockSupport.unpark(oddThread);
-                }
+                LockSupport.park();
+                System.out.println("偶数线程："+start);
+                start++;
+                LockSupport.unpark(oddThread);
             }
         }
     }
